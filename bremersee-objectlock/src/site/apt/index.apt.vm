@@ -1,0 +1,19 @@
+Bremersee ObjectLock
+
+  This project contains classes for using a ReadWriteLock mechanism for a specified object.
+  
+  The specified object may be for example the user name of a person entity and the method, that updates this person is only locked for this person:
+  
++----------------------------------------------------------------------------------+
+private final ObjectReadWriteLock objectReadWriteLock = ObjectReadWriteLockImpl();
+
+public void update(Person person) {
+    objectReadWriteLock.lockWriting(person.getUserName());
+    try {
+        // update person
+
+    } finally {
+        objectReadWriteLock.unlockWriting(person.getUserName());
+    }
+}
++----------------------------------------------------------------------------------+
