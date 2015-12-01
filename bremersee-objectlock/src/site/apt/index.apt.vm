@@ -8,12 +8,13 @@ Bremersee ObjectLock
 private final ObjectReadWriteLock objectReadWriteLock = ObjectReadWriteLockImpl();
 
 public void update(Person person) {
-    objectReadWriteLock.lockWriting(person.getUserName());
+    final String userName = person.getUserName();
+    objectReadWriteLock.lockWriting(userName);
     try {
         // update person
 
     } finally {
-        objectReadWriteLock.unlockWriting(person.getUserName());
+        objectReadWriteLock.unlockWriting(userName);
     }
 }
 +----------------------------------------------------------------------------------+
