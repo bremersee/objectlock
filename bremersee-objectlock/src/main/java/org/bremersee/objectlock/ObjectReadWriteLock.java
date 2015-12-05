@@ -40,7 +40,7 @@ import java.util.concurrent.locks.ReadWriteLock;
  * }
  * </pre>
  * 
- * @see {@link ReadWriteLock}
+ * @see ReadWriteLock
  * 
  * @author Christian Bremer
  */
